@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		body{
+			background: skyblue;
+			margin: 0;
+			padding: 0;
+		}
+		.bar{
+			 padding: 5px;
+			 margin: 0px;
+			 border: 30px solid #dddddd
+		}
+		.title{
+			text-align: center;
+		}
+		.page{
+			text-align: center;
+		}
+		.bar2{
+			margin-top: 50px;
+			background: linear-gradient( to bottom, yellow, red, blue, green, skyblue );
+			display: inline-block;
+			width: 300px;
+			color: white;
+		}
+		.bar2:hover{
+			-webkit-filter: invert(100%);
+    		filter: invert(100%);
+		}
+		img{animation: rotate_image 0.2s linear infinite;
+    		transform-origin: 50% 50%;
+		}
+		img:hover{
+			animation: none;
+		}
+		@keyframes rotate_image{
+			100% {
+    		transform: rotate(360deg);
+    		}
+		}
+	</style>
+	<title>간지나는 윤희윤의 백합일지</title>
+</head>
+<body >
+	<div class="bar"><h1 class="title">윤희윤의 취향 모음</h1></div>
+		<div class="page">
+			<img src="heisking.jpg" height="200px" id="image" title="잣 잣 이리로 왔">
+			<a href="1.html">
+			<div class="bar2" id="button" onclick=""><h1 class="title">click me</h1></div>
+			</a>
+			<img src="heisking.jpg" height="200px" id="image" title="하하하하하하하하">
+		</div>
+	<script type="text/javascript">
+		var colors = ['red', 'orange', 'yellow', 'green', 'blue'];
+		var button = document.getElementById('button');
+		var img = document.getElementById('image');
+		window.onload = function(){
+			playAlert = setInterval(function() {
+				changecolor();
+				console.log(" ");
+			}, 50);
+		}
+		function changecolor(){
+			button.style="background : linear-gradient( to bottom, "+colors[0]+", "+colors[1]+","+ colors[2]+", "+colors[3]+", "+colors[4]+")";
+			console.log("linear-gradient( to bottom, "+colors[0]+", "+colors[1]+","+ colors[2]+", "+colors[3]+", "+colors[4]+")");
+			for(var i = 0 ;i<colors.length-1;i++){
+				var temp = colors[i];
+				colors[i] = colors[i+1];
+				colors[i+1]=temp;
+			}
+		}
+	</script>
+
+</body>
+</html>
